@@ -77,6 +77,12 @@ const checkWin = () => {
     }
     switchPlayer();
   };
+
+const switchPlayer = () => {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    const player = document.querySelector("#player");
+    player.textContent = `Its turn the player: ${currentPlayer}`;
+}
   
   
   
