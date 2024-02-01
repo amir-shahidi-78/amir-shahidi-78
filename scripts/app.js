@@ -43,3 +43,17 @@ const checkWin = () => {
     });
   }
 
+  const clearGameBoard = () => {
+    for (let i = 0; i < gameBoard.length; i++) {
+      for (let j = 0; j < gameBoard[i].length; j++) {
+        gameBoard[i][j] = '';
+      }
+    }
+  
+    const gridItems = document.querySelectorAll(".game-grid__item");
+    gridItems.forEach(gridItem => {
+      gridItem.textContent = '';
+    });
+  };
+  
+  
