@@ -56,4 +56,27 @@ const checkWin = () => {
     });
   };
   
+  const handleCellClick = (e) => {
+    const selectedCell = e.target;
+    if (selectedCell.textContent !== "") {
+      alert(`The current cell is selected by player ${selectedCell.textContent}`)
+      return;
+    }
+    selectedCell.textContent = currentPlayer;
+    const rowIndex = Math.floor(parseInt(selectedCell.id) / 3);
+    gameBoard[rowIndex][parseInt(selectedCell.id) % 3] = currentPlayer;
+  
+    if (checkWin()){
+      alert(`Player ${currentPlayer} won the Game :)`)
+      clearGameBoard();
+      return;
+    }
+    else if (isGameBoardFull()) {
+      alert("Gameboard is full");
+      clearGameBoard();
+    }
+    switchPlayer();
+  };
+  
+  
   
